@@ -18,41 +18,65 @@ def initialisation():
 
 
 def action (emplacement):
-    for i in range(NBIT+1):
-        if emplacement == "A":
-            if salleA[i] == 1:
-                print("On nettoie la salle A")
-                salleA[i] = 0
-            if salleA[i] == 0:
-                print("La salle A est propre, direction salle B")
-                emplacement = salleB[0]
-        if emplacement == "B":    
-            if salleB[i] == 1:
-                print("On nettoie la salle B")
-                salleB[i] = 0
-            if salleB[i] == 0:
-                print("La salle B est propre, direction salle A")
-                emplacement = salleA[0]
+    if etat[0] == "A":
+        if salleA[i] == 1:
+            print("On nettoie la salle A")
+            salleA[i] = 0
+            etat[1] = "sale"
+            actionLog.append(etat)
+        if salleA[i] == 0:
+            print("La salle A est propre, direction salle B")
+            etat[0] = salleB[0]
+            etat[1] = "propre"
+            actionLog.append(etat)
 
-        if emplacement == "A":
-            if salleA[i] == 1:
-                print("On nettoie la salle A")
-                salleA[i] = 0
-            if salleA[i] == 0:
-                print("La salle A est propre, direction salle B")
-                emplacement = salleB[0]
+
+    if etat[0] == "B":    
+        if salleB[i] == 1:
+            print("On nettoie la salle B")
+            salleB[i] = 0
+            etat[1] = "sale"
+            actionLog.append(etat)
+        if salleB[i] == 0:
+            print("La salle B est propre, direction salle A")
+            etat[0] = salleA[0]
+            etat[1] = "propre"
+            actionLog.append(etat)
+
+
+    if etat[0] == "A":
+        if salleA[i] == 1:
+            proprete = "sale"
+            print("On nettoie la salle A")
+            salleA[i] = 0
+            etat[1] = "sale"
+            actionLog.append(etat)
+        if salleA[i] == 0:
+            print("La salle A est propre, direction salle B")
+            etat[0] = salleB[0]
+            etat[1] = "propre"
+            actionLog.append(etat)
 
 def changerEtat():
     for x in range(NBIT):
         salleA.append(random.randint(0,1))
         salleB.append(random.randint(0,1))
 
-emplacement = initialisation()
+def etatActuel():
+    print("L'aspirateur se trouve dans la salle {0} dont l'état est {1}".format(etat[0],etat[1]))
+
+etat.append(initialisation())
+etat.append("inconnue")
+
+#salle avant robot
 changerEtat()
-etat.append(salleA)
-etat.append(salleB)
 print(salleA)
 print(salleB)
-action(emplacement)
+
+for i in range(NBIT+1):
+    action(etat[0])
+    #etatActuel()
+
+#salles après robot
 print(salleA)
 print(salleB)
