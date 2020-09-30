@@ -125,3 +125,4 @@ pom.xml.tag
 *.odt
 *.o
 *.log
+*.txt
