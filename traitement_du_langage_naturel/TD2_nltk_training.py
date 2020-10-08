@@ -1,3 +1,5 @@
+# Hugo BERANGER - M2 MIAGE IA
+
 import nltk
 from nltk.corpus import brown
 from nltk.corpus import treebank
@@ -39,5 +41,3 @@ rd_parser = nltk.RecursiveDescentParser(grammar1)
 for tree in rd_parser.parse(sent):
     print(tree)
 """
-
-

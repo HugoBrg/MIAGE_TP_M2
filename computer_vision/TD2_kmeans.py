@@ -1,3 +1,5 @@
+# Hugo BERANGER - M2 MIAGE IA
+
 import os
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split

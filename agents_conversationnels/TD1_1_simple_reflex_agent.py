@@ -1,12 +1,15 @@
+#Hugo BERANGER - M2 MIAGE IA
+
 import random
 
-NBIT = 5 #nombre d'itérations
+NBIT = 5  # nombre d'itérations
 salleA = ['A']
 salleB = ['B']
 random.seed()
 
+
 def initialisation():
-    r = random.randint(0,1)
+    r = random.randint(0, 1)
     if r == 1:
         print("L'aspirateur démarre en salle A")
         return salleA[0]
@@ -15,7 +18,7 @@ def initialisation():
         return salleB[0]
 
 
-def action (emplacement):
+def action(emplacement):
     for i in range(NBIT+1):
         if emplacement == "A":
             if salleA[i] == 1:
@@ -24,7 +27,7 @@ def action (emplacement):
             if salleA[i] == 0:
                 print("La salle A est propre, direction salle B")
                 emplacement = salleB[0]
-        if emplacement == "B":    
+        if emplacement == "B":
             if salleB[i] == 1:
                 print("On nettoie la salle B")
                 salleB[i] = 0
@@ -40,10 +43,12 @@ def action (emplacement):
                 print("La salle A est propre, direction salle B")
                 emplacement = salleB[0]
 
+
 def changerEtat():
     for x in range(NBIT):
-        salleA.append(random.randint(0,1))
-        salleB.append(random.randint(0,1))
+        salleA.append(random.randint(0, 1))
+        salleB.append(random.randint(0, 1))
+
 
 emplacement = initialisation()
 changerEtat()

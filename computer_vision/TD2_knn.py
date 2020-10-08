@@ -1,3 +1,5 @@
+#Hugo BERANGER - M2 MIAGE IA
+
 # using the knn algorithm and checking the 5 closest neighbours
 from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
