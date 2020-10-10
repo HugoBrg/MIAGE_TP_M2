@@ -118,7 +118,6 @@ pom.xml.releaseBackup
 pom.xml.tag
 
 #Perso
-*.xml
 *.properties
 *.mf
 *.gdoc

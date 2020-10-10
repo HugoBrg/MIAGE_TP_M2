@@ -1,4 +1,4 @@
-#Hugo BERANGER - M2 MIAGE IA
+# Hugo BERANGER - M2 MIAGE IA
 
 # using the knn algorithm and checking the 5 closest neighbours
 from sklearn.neighbors import KNeighborsClassifier
@@ -10,12 +10,20 @@ import numpy as np
 import matplotlib.pyplot as plt
 import glob
 import cv2
+import time
+from sklearn.neighbors import NearestCentroid
 
 #!wget --no-check-certificate -r 'http://www.i3s.unice.fr/~sanabria/files/dataset.zip' -O dataset.zip
 #!unzip -qq dataset.zip -d /home/hugo/Documents/
 #!ls /home/hugo/Documents/dataset
 
+#!wget --no-check-certificate -r 'http://www.i3s.unice.fr/~sanabria/files/animals_dataset.zip' -O animals_dataset.zip
+#!unzip -qq animals_dataset.zip -d /home/hugo/Documents/
+#!ls /home/hugo/Documents/animals_dataset
+
 dataset_path = "/home/hugo/Documents/dataset/"
+
+#dataset_path = "/home/hugo/Documents/animals_dataset/"
 
 classes = os.listdir(dataset_path)
 
@@ -49,7 +57,7 @@ def read_images(X):
     X_image = []
     for image_path in X:
         image = cv2.imread(image_path)
-        image_resize = cv2.resize(image, (32, 32))
+        image_resize = cv2.resize(image, (16, 16))
         X_image.append(image_resize)
     return np.asarray(X_image)
 
@@ -70,7 +78,7 @@ knn = KNeighborsClassifier(n_neighbors=5)
 knn.fit(X_train_image_flatten, y_train)
 
 # checking the knn score, its actually pretty bad because we don't check enough neighbours given the size of the dataset
-knn.score(X_test_image_flatten, y_test)
+print(knn.score(X_test_image_flatten, y_test))
 
 # checking which k value is the best to use, only went to 100 cause I have a bad machine, the curve should go back down after a while because k checking too many neighbours isn't efficient
 
@@ -87,4 +95,16 @@ def check_results_different_k(from_k, to_k, X_train, X_val):
     plt.show()
 
 
+start_time = time.time()
 check_results_different_k(2, 20, X_train_image_flatten, X_val_image_flatten)
+print("--- %s seconds ---" % (time.time() - start_time))
+
+k_best_result = 100
+knn = KNeighborsClassifier(n_neighbors=k_best_result)
+knn.fit(X_train_image_flatten, y_train)
+print(knn.score(X_test_image_flatten, y_test))
+
+# nearest centroind
+nc = NearestCentroid()
+nc.fit(X_train_image_flatten, y_train)
+nc.score(X_test_image_flatten, y_test)

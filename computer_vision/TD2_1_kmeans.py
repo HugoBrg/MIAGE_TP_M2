@@ -13,7 +13,13 @@ import cv2
 #!unzip -qq dataset.zip -d /home/hugo/Documents/
 #!ls /home/hugo/Documents/dataset
 
+#!wget --no-check-certificate -r 'http://www.i3s.unice.fr/~sanabria/files/animals_dataset.zip' -O animals_dataset.zip
+#!unzip -qq animals_dataset.zip -d /home/hugo/Documents/
+#!ls /home/hugo/Documents/animals_dataset
+
 dataset_path = "/home/hugo/Documents/dataset/"
+
+#dataset_path = "/home/hugo/Documents/animals_dataset/"
 
 classes = os.listdir(dataset_path)
 
