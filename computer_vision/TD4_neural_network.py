@@ -81,15 +81,8 @@ print(X_train_image.shape[1] * X_train_image.shape[2] * X_train_image.shape[3])
 # Let's build a simple neural network using the keras sequential method
 model = Sequential()
 
-model.add(Dense(1, input_dim=3072, activation='relu'))  # Using only one neuron
-
 # softmax for the output using as many neurons as classes (10 in this case)
-nb_classes = 2
-model.add(Dense(nb_classes, activation='softmax'))
-model.summary()  # This line is used to print the architecture of the model
-
-model.compile(optimizer='sgd', loss='categorical_crossentropy',
-              metrics=['accuracy'])
+nb_classes = 1
 
 nb_neurons_first_layer = 16  # A completer
 nb_neurons_second_layer = 16  # A completer
@@ -98,9 +91,9 @@ model = Sequential()
 model.add(Dense(nb_neurons_first_layer, input_dim=3072, activation='relu'))
 model.add(Dense(nb_neurons_second_layer, activation='relu'))
 
-model.add(Dense(nb_classes, activation='softmax'))
+model.add(Dense(nb_classes, activation='sigmoid'))
 
-model.compile(optimizer='sgd', loss='categorical_crossentropy',
+model.compile(optimizer='sgd', loss='binary_crossentropy',
               metrics=['accuracy'])
 
 ourCallback = keras.callbacks.EarlyStopping(monitor='val_accuracy', min_delta=0.0001, patience=20)
