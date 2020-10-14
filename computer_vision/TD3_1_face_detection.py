@@ -1,3 +1,5 @@
+# Hugo BERANGER - M2 MIAGE IA
+
 import cv2 as cv
 from PIL import Image
 from IPython.display import display, Javascript, HTML

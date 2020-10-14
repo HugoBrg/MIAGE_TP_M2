@@ -1,3 +1,5 @@
+# Hugo BERANGER - M2 MIAGE IA
+
 # creating a new dataset
 import pickle
 import os

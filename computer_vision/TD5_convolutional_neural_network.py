@@ -61,6 +61,10 @@ print('testing samples   :', len(X_test))
 print('validation samples:', len(X_val))
 print("y train shape     :", y_train)
 
+y_train = keras.utils.to_categorical(y_train, 2)
+y_test = keras.utils.to_categorical(y_test, 2)
+y_val = keras.utils.to_categorical(y_val, 2)
+
 # resize the images in order to make the task easier for the algorithm
 def read_images(X):
     X_image = []
@@ -77,15 +81,14 @@ X_test_image = read_images(X_test)
 X_val_image = read_images(X_val)
 
 # flatten the image because can means can only use vectors
-X_train_image_flatten = X_train_image.reshape(
-    X_train_image.shape[0], X_train_image.shape[1] * X_train_image.shape[2] * X_train_image.shape[3])
-X_test_image_flatten = X_test_image.reshape(X_test_image.shape[0], -1)
-X_val_image_flatten = X_val_image.reshape(X_val_image.shape[0], -1)
+X_train_image = X_train_image.reshape(1819, 28, 28, 1)
+X_test_image = X_test_image.reshape(227, 28, 28, 1)
+X_val_image = X_val_image.reshape(228, 28, 28, 1)
 
 # normalize the data (grey levels are integers from 0 to 255)
 X_train_image_flatten = X_train_image_flatten.astype('float32')/255
-X_test_image_flatten = X_test_image_flatten.astype('float32')/255
-X_val_image_flatten = X_val_image_flatten.astype('float32')/255
+X_test_image = X_test_image.astype('float32')/255
+X_val_image = X_val_image.astype('float32')/255
 
 # pour connaitre l'input dim
 print("input dim         :",
@@ -122,7 +125,7 @@ print("y_train :", y_train)
 print("y_val   :)", y_val)
 
 history = model.fit(X_train_image_flatten, y_train, validation_data=(
-    X_val_image_flatten, y_val), epochs=300, batch_size=128, callbacks=[ourCallback])
+    X_val_image, y_val), epochs=300, batch_size=128, callbacks=[ourCallback])
 
 # list all data in history
 print(history.history.keys())
@@ -143,5 +146,5 @@ plt.xlabel('epoch')
 plt.legend(['train', 'validation'], loc='upper left')
 plt.show()
 
-score = model.evaluate(X_test_image_flatten, y_test)
+score = model.evaluate(X_test_image, y_test)
 print("%s: %.2f%%" % (model.metrics_names[1], score[1]*100))
