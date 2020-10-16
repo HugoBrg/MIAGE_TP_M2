@@ -4,6 +4,7 @@ from deap import base
 from deap import tools
 import random
 from deap import creator
+from IPython.utils.py3compat import xrange
 
 NGEN = 10
 CXPB = 0.1
@@ -32,8 +33,28 @@ for x in range(POP_SIZE):
     ind = toolbox.individual()
     pop.append(ind)
 
+MIN = 1
+MAX = 5
+def checkBounds(min, max):
+    def decorator(func):
+        def wrapper(*args, **kargs):
+            offspring = func(*args, **kargs)
+            for child in offspring:
+                for i in xrange(len(child)):
+                    if child[i] > max:
+                        child[i] = max
+                    elif child[i] < min:
+                        child[i] = min
+            return offspring
+        return wrapper
+    return decorator
+
 toolbox.register("mate", tools.cxTwoPoint)
 toolbox.register("mutate", tools.mutGaussian, mu=0, sigma=1, indpb=0.2)
+
+toolbox.decorate("mate", checkBounds(MIN, MAX))
+toolbox.decorate("mutate", checkBounds(MIN, MAX))
+
 toolbox.register("select", tools.selTournament, tournsize=3)
 toolbox.register("evaluate", evaluateInd)
 
