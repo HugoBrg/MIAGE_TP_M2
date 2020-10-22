@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 import nltk
 import re
 from SPARQLWrapper import SPARQLWrapper
-from nltk.corpus import wordnet as wn
+from difflib import SequenceMatcher
 
 tree = ET.parse('questions.xml')
 root = tree.getroot()
@@ -75,68 +75,95 @@ for qtypes in questions_type:
         rtype = "time/date"
     responses_type.append(rtype)
 
+to_iterate = [[]]
+to_iterate_group = []
+#print(len(questions))
+for x in range(len(questions)):
+    for a in range(len(questions_verbs[x])):
+        to_iterate_group.append(questions_verbs[x])
+    for c in range(len(questions_nouns[x])):
+        to_iterate_group.append(questions_nouns[x])
+    #print("KEK : ",to_iterate_group)
+    to_iterate.append(to_iterate_group)
+
+#print(len(to_iterate))
+    
 # Saving which word is the closest from our relation word
 closest_relation = [[]]
 for verbs in questions_verbs:
+    #print("===========") 
+    file = open('relations.txt', "r")
+    lines = file.readlines()
+    closest_duo = []
+    closest_word = ""
+    similarity = 0
+    aword = ""
     for verb in verbs:
-        file = open('relations.txt', "r")
-        print("===========")
-        print(verb)
-        closest_word = ""
-        highest_num = 0
-        lines = file.readlines()
+        aword = verb
+        #print("verb        :",verb)
         for line in lines:
-            word=""
+            word= ""
             word = line.replace("dbo:","")
             word = word.replace("dbp:","")
             word = word.strip()
-            word1 = wn.synsets(verb+'.n.01')
-            print(wn.synsets(verb)[0])
-            if(len(wn.synsets(word)) > 0):
-                word2 = wn.synsets(word)[0]
-                print(word1.path_similarity(word2))
-                if (word1.path_similarity(word2) > highest_num):
-                    highest_num = word1.path_similarity(word2)
-                    closest_word = word
-        print(closest_word)
-        print(highest_num)
-        file.close()
-        print("===========")
+            if(SequenceMatcher(None,verb,word).ratio() >= similarity):
+                similarity = SequenceMatcher(None,verb,word).ratio()
+                closest_word = word
+
+    closest_duo.append(aword)
+    closest_duo.append(closest_word)
+    closest_relation.append(closest_duo)
+    #print("closest word : ",closest_word)
+    #print("closest duo  : ",closest_duo)
+    #print("===========")    
+    file.close()
+closest_relation.pop(0)
+
+
+# Creating requests
+queries = []
+sparql = SPARQLWrapper("https://wiki.dbpedia.org/")
+for i in range(len(questions)):
+    query = "PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX res: <http://dbpedia.org/resource/> SELECT DISTINCT ?uri WHERE {res:"
+    query += questions_nouns[i+1][0]
+    query += " dbo:"
+    query += closest_relation[i+1][1]
+    query += " ?uri .}"
+    #print(questions[i])
+    #print(query)
+    queries.append(query)
+
 
 # Showing what's understood
 def show():
     for i in range(len(questions)):
         print(questions[i])
-        print("Quetion type   : {}".format(questions_type[i]))
-        print("Question nouns : {}".format(questions_nouns[i+1]))
-        print("Question verbs : {}".format(questions_verbs[i+1]))
-        print("Response type  : {}".format(responses_type[i]))
+        print("Quetion type   : ",questions_type[i])
+        print("Question nouns : ",questions_nouns[i+1])
+        print("Question verbs : ",questions_verbs[i+1])
+        print("Closest duo    : ",closest_relation[i+1])
+        print("Response type  : ",responses_type[i])
+        print("Query          : ",queries[i])
         print("===================================================")
 
+show()
 
-#show()
-
-# Creating requests
-queries = []
-for i in range(len(questions)):
-    t = ""
-    query = "SELECT "
-    query += responses_type[i]
-    query += " FROM "
-    query += " "
-    #print(questions[i])
+nb_fail = 0
+nb_success = 0
+for x in range(len(queries)):
+    query = queries[x]
     #print(query)
+    sparql.setQuery(query)
 
+    try :
+        ret = sparql.query()
+        #print("QUERY SUCCESS")
+        print(ret)
+        nb_success += 1
+        # ret is a stream with the results in XML, see <http://www.w3.org/TR/rdf-sparql-XMLres/>
+    except :
+        #print("QUERY FAILED")
+        nb_fail += 1
 
-queryString = "PREFIX space: <http://purl.org/net/schemas/space/>SELECT ?craft {?craft a space:Spacecraft} LIMIT 50" 
-sparql = SPARQLWrapper("https://wiki.dbpedia.org/")
-
-sparql.setQuery(queryString)
-
-try :
-   ret = sparql.query()
-   print(ret)
-   # ret is a stream with the results in XML, see <http://www.w3.org/TR/rdf-sparql-XMLres/>
-except :
-   print("QUERY FAILED")
-
+print("Number of successful requests : ",nb_success)
+print("Number of failed requests     : ",nb_fail)

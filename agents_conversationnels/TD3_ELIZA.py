@@ -19,19 +19,20 @@ rules = {'do you think (.*)': ['if {0}? Absolutely.', 'No chance'], 'do you reme
 
 keywords = {'greet': ['hello', 'hi', 'hey'], 'goodbye': ['bye', 'farewell'], 'thankyou': ['thank', 'thx']}
 
-love_words = {"love": ["<3", " that's really kind", "you're full of kindness", "take care", "ily", "I love you", "that's so sweet", "I love you"]}
-angry_words = {"angry": ["fuck","murder","mafia","kill","murderer"]}
-love = 0
-angry = 0
+kind_words = {"kind": ["<3", "that's really kind", "you're full of kindness", "take care", "ily", "I love you", "that's so sweet"]}
+angry_words = {"angry": ["fuck", "murder", "mafia", "kill", "murderer"]}
 
-with open('numbers.txt', 'w') as handle:
-    for n in np.arange(1, 100, 10):
-        handle.write('{}\n'.format(n))
+kindness = 0
+angriness = 0
+boredom = 0
+excitment = 0
 
 # Define a dictionary of patterns
 patterns = {}
-love_words_patterns = {}
+kind_words_patterns = {}
 angry_words_patterns = {}
+boredom_words_patterns = {}
+excitment_words_patterns = {}
 
 # Iterate over the keywords dictionary
 for intent, keys in keywords.items():
@@ -39,9 +40,9 @@ for intent, keys in keywords.items():
     patterns[intent] = re.compile('|'.join(keys))
     
 # Iterate over the keywords dictionary
-for intent, keys in love_words.items():
+for intent, keys in kind_words.items():
     # Create regular expressions and compile them into pattern objects
-    love_words_patterns[intent] = re.compile('|'.join(keys))
+    kind_words_patterns[intent] = re.compile('|'.join(keys))
 
 # Iterate over the keywords dictionary
 for intent, keys in angry_words.items():
@@ -112,22 +113,32 @@ def find_name(message):
 
 # Define a respond function
 def respond(message):
-    global love
-    global angry
+    global kindness
+    global angriness
     # Call the match_intent function
     intent = match_intent(message)
     # Fall back to the default response
     key = "default"
-    if intent == "love":
-        love += 10
-        angry -= 10
-        print("love :",love)
-        print("angry :",angry)
+    if intent == "kind":
+        kindness += 10
+        angriness -= 10
+        print("kindness :",kindness)
+        print("angriness :",angriness)
     elif intent == "angry":
-        angry += 10
-        love -= 10
-        print("love :",love)
-        print("angry :",angry)
+        angriness += 10
+        kindness -= 10
+        print("kindness :",kindness)
+        print("angriness :",angriness)
+    elif intent == "boredom":
+        boredom += 10
+        excitment -=10
+        print("boredom :",boredom)
+        print("excitment :",excitment)
+    elif intent == "excitment":
+        boredom -= 10
+        excitment +=10
+        print("boredom :",boredom)
+        print("excitment :",excitment)
     elif intent in responses:
         key = intent
     return responses[key]
@@ -146,7 +157,7 @@ def match_intent(message):
         if pattern.search(message):
             matched_intent = intent
     
-    for intent, pattern in love_words_patterns.items():
+    for intent, pattern in kind_words_patterns.items():
         # Check if the pattern occurs in the message 
         if pattern.search(message):
             matched_intent = intent
