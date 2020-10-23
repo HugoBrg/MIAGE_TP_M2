@@ -9,7 +9,7 @@ NGEN = 10
 CXPB = 0.1
 MUTPB = 0.1
 IND_SIZE = 5
-POP_SIZE = 100
+POP_SIZE = 10
 
 toolbox = base.Toolbox()
 

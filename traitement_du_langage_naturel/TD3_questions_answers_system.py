@@ -157,13 +157,23 @@ for x in range(len(queries)):
 
     try :
         ret = sparql.query()
-        #print("QUERY SUCCESS")
+        print("QUERY SUCCESS")
         print(ret)
         nb_success += 1
-        # ret is a stream with the results in XML, see <http://www.w3.org/TR/rdf-sparql-XMLres/>
     except :
-        #print("QUERY FAILED")
+        print("QUERY FAILED")
         nb_fail += 1
+
+# Test query, doesn't work
+query = "PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX res: <http://dbpedia.org/resource/>SELECT DISTINCT ?uri WHERE {res:Wikipedia dbo:author ?uri .}"
+
+sparql.setQuery(query)
+try :
+    ret = sparql.query()
+    print("QUERY SUCCESS")
+    print(ret)
+except :
+    print("QUERY FAILED")
 
 print("Number of successful requests : ",nb_success)
 print("Number of failed requests     : ",nb_fail)
