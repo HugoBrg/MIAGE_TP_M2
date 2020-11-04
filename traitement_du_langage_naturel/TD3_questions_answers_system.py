@@ -1,10 +1,16 @@
 # Hugo BERANGER - M2 MIAGE IA
 
+# install nltk and SPARQLWrapper
+
 import xml.etree.ElementTree as ET
 import nltk
 import re
 from SPARQLWrapper import SPARQLWrapper
 from difflib import SequenceMatcher
+
+import nltk
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
 
 tree = ET.parse('questions.xml')
 root = tree.getroot()
@@ -148,6 +154,7 @@ def show():
 
 show()
 
+"""
 nb_fail = 0
 nb_success = 0
 for x in range(len(queries)):
@@ -157,23 +164,24 @@ for x in range(len(queries)):
 
     try :
         ret = sparql.query()
-        print("QUERY SUCCESS")
-        print(ret)
+        #print("QUERY SUCCESS")
+        #print(ret)
         nb_success += 1
     except :
         print("QUERY FAILED")
         nb_fail += 1
+"""
 
 # Test query, doesn't work
-query = "PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX res: <http://dbpedia.org/resource/>SELECT DISTINCT ?uri WHERE {res:Wikipedia dbo:author ?uri .}"
+# query = "PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX res: <http://dbpedia.org/resource/>SELECT DISTINCT ?uri WHERE {res:Wikipedia dbo:author ?uri .}"
 
-sparql.setQuery(query)
-try :
-    ret = sparql.query()
-    print("QUERY SUCCESS")
-    print(ret)
-except :
-    print("QUERY FAILED")
+# sparql.setQuery(query)
+# try :
+#     ret = sparql.query()
+#     print("QUERY SUCCESS")
+#     print(ret)
+# except :
+#     print("QUERY FAILED")
 
-print("Number of successful requests : ",nb_success)
-print("Number of failed requests     : ",nb_fail)
+# print("Number of successful requests : ",nb_success)
+# print("Number of failed requests     : ",nb_fail)

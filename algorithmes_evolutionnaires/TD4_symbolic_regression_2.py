@@ -9,6 +9,8 @@ from deap import gp
 import operator
 from numpy import math
 import numpy
+import csv
+
 # constant
 NGEN = 10           # number of generation
 CXPB = 0.1          # crossover probabilty
@@ -27,16 +29,36 @@ def protectedDiv(left, right):
     except ZeroDivisionError:
         return 1
 
+def protectedLog(var):
+    if(var > 0):
+        return math.log(var)
+    else:
+        return 1
+
+
+def readTSV():
+    tsv = []
+    tsv_file = open("test.tsv")
+    read_tsv = csv.reader(tsv_file, delimiter="\t")
+    
+    for row in read_tsv:
+            tsv.append(row)
+    tsv_file.close()
+    print(tsv)
+    return tsv
+
+readTSV()
+
 pset = gp.PrimitiveSet("MAIN", 1)
 pset.addPrimitive(operator.add, 2)
 pset.addPrimitive(operator.sub, 2)
 pset.addPrimitive(operator.mul, 2)
 pset.addPrimitive(protectedDiv, 2)
 pset.addPrimitive(operator.neg, 1)
+pset.addPrimitive(protectedLog, 1)
 pset.addPrimitive(math.cos, 1)
 pset.addPrimitive(math.sin, 1)
 pset.addEphemeralConstant("rand101", lambda: random.randint(-1,1))
-pset.renameArguments(ARG0='x')
 
 # creation of an individual composed of 5 float from 0 to 5
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
@@ -56,7 +78,7 @@ def evalSymbReg(individual, points):
     sqerrors = ((func(x) - x**4 - x**3 - x**2 - x)**2 for x in points)
     return math.fsum(sqerrors) / len(points),
 
-toolbox.register("evaluate", evalSymbReg, points=[x/10. for x in range(-10,10)])
+toolbox.register("evaluate", evalSymbReg, points = [x/10. for x in range(-10,10)])
 toolbox.register("select", tools.selTournament, tournsize=3)
 toolbox.register("mate", gp.cxOnePoint)
 toolbox.register("expr_mut", gp.genFull, min_=0, max_=2)
