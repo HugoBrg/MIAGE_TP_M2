@@ -12,8 +12,8 @@ y = dataset[:,8]
 def neuronalNetwork(dense1NeuronNumber, dense2NeuronNumber):
     # define the keras model
     model = Sequential()
-    model.add(Dense(12, input_dim=8, activation='relu'))
-    model.add(Dense(8, activation='relu'))
+    model.add(Dense(dense1NeuronNumber, input_dim=8, activation='relu'))            # modification paramètres layer
+    model.add(Dense(dense2NeuronNumber, activation='relu'))                         # modification paramètres layer
     model.add(Dense(1, activation='sigmoid'))
     # compile the keras model
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
@@ -22,9 +22,9 @@ def neuronalNetwork(dense1NeuronNumber, dense2NeuronNumber):
     # evaluate the keras model
     _, accuracy = model.evaluate(X, y)
     print('Accuracy: %.2f' % (accuracy*100))
+    return(accuracy)
 
 ###########################################################################################
-
 from deap import base
 from deap import tools
 from deap import creator
@@ -37,14 +37,19 @@ NGEN = 100          # number of generation
 CXPB = 0.4          # crossover probabilty
 MUTPB = 0.2         # mutation probability
 IND_SIZE = 8        # size of one individual
-POP_SIZE = 100      # number of individuals
+POP_SIZE = 10       # number of individuals
 
 
 def numberOfNeurons(ind):
     x = []
-    x.append(random.randrange(2, 20))
-    x.append(random.randrange(2, 20))
+    x.append(numpy.ones(random.randrange(2, 20)))
+    x.append(numpy.ones(random.randrange(2, 20)))
     return ind(x)
+
+def evaluate(ind):
+    return neuronalNetwork(len(ind[0]),len(ind[1]))
+
+
 
 creator.create("FitnessMax", base.Fitness, weights=(1.0,))
 creator.create("Individual", list, fitness=creator.FitnessMax)
@@ -55,6 +60,7 @@ toolbox.register("pop", tools.initRepeat, list, toolbox.Individual)
 # toolbox.register("mate", mate, ind=creator.Individual)
 # toolbox.register("mutate", tools.mutGaussian, mu=0, sigma=1, indpb=MUTPB)
 toolbox.register("select", tools.selTournament, tournsize=3)
-# toolbox.register("evaluate", evaluate)
+toolbox.register("evaluate", evaluate)
 pop = toolbox.pop(POP_SIZE)
 print(pop)
+print(evaluate(pop[0]))
