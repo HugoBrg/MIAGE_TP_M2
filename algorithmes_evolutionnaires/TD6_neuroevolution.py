@@ -10,11 +10,14 @@ dataset = loadtxt('data.csv', delimiter=',')
 X = dataset[:,0:8]
 y = dataset[:,8]
 
-def neuronalNetwork(dense1NeuronNumber, dense2NeuronNumber):
+def neuronalNetwork(layers):
+
     # define the keras model
     model = Sequential()
-    model.add(Dense(dense1NeuronNumber, input_dim=8, activation='relu'))            # modification paramètres layer
-    model.add(Dense(dense2NeuronNumber, activation='relu'))                         # modification paramètres layer
+    
+    for layer in layers:
+        model.add(Dense(numpy.count_nonzero(layer == 1), input_dim=8, activation='relu'))            # modification paramètres layer
+    
     model.add(Dense(1, activation='sigmoid'))
     # compile the keras model
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
@@ -34,38 +37,32 @@ import random
 import numpy
 
 # constant
-NGEN = 10            # number of generation
+NGEN = 10           # number of generation
 CXPB = 0.4          # crossover probabilty
 MUTPB = 0.2         # mutation probability
 IND_SIZE = 8        # size of one individual
-POP_SIZE = 10        # number of individuals
+POP_SIZE = 5        # number of individuals
 
 
 def numberOfNeurons(ind):
     x = []
-    x.append(numpy.ones(random.randrange(2, 11)))
-    x.append(numpy.ones(random.randrange(2, 11)))
+    for i in range(random.randrange(1, 5)):
+        x.append(numpy.ones(random.randrange(2, 11)))
     return ind(x)
 
 def evaluate(ind):
-    dense1NeuronNumber = numpy.count_nonzero(ind[0] == 1)
-    dense2NeuronNumber = numpy.count_nonzero(ind[1] == 1)
-    return neuronalNetwork(dense1NeuronNumber,dense2NeuronNumber),
+    taux_erreur = 1-neuronalNetwork(ind)
+    taux_erreur = taux_erreur * taux_erreur
+    erreur_quadratique = 1/taux_erreur+1
+    return erreur_quadratique,
 
 def mutate(ind):
-    print("mutate")
-    y = random.randrange(0, 2) # si 0 layer1 sinon layer2
-    x = random.randrange(0, 2) # si 0 dropout sinon ajout neurone
-    if(y):
-        if(x):
-            ind[1] = numpy.append(ind[1],1)
-        else:
-            ind[1] = numpy.delete(ind[1], [len(ind[1])-1])
+    selectedLayer = random.randrange(0, len(ind)) 
+    changeNeuron = random.randrange(0, 2) 
+    if(changeNeuron):
+        ind[selectedLayer] = numpy.append(ind[selectedLayer],1)
     else:
-        if(x):
-            ind[0] = numpy.append(ind[0],1)
-        else:
-            ind[0] = numpy.delete(ind[0], [len(ind[1])-1])
+        ind[selectedLayer] = numpy.delete(ind[selectedLayer], [len(ind[selectedLayer])-1])
     return ind
 
     
@@ -81,9 +78,9 @@ toolbox.register("select", tools.selTournament, tournsize=3)
 toolbox.register("evaluate", evaluate)
 pop = toolbox.pop(POP_SIZE)
 # print(pop)
-# print(pop[0])
-# print(evaluate(pop[0]))
-# print(mutate(pop[0]))
+# print("first individual : ", pop[0])
+# print("evaluate         : ", evaluate(pop[0]))
+# print("mutate           : ", mutate(pop[0]))
 
 def meilleurInd(pop):
     meilleurFit = 0
@@ -123,10 +120,10 @@ def generation():
         pop[:] = offspring
 
         if(g == 0):
-            print("Meilleur individu gen 1 - fit   : ", meilleurInd(pop)[0])
-            print("Individu : ",meilleurInd(pop)[1])
+            print("######################### Meilleur individu gen 1 - fit   : {0} #########################".format(meilleurInd(pop)[0]))
+            # print("Individu : ",meilleurInd(pop)[1])
         elif(g == NGEN - 1):
-            print("Meilleur invidivu gen 100 - fit : ", meilleurInd(pop)[0])
-            print("Individu : ",meilleurInd(pop)[1])
+            print("######################### Meilleur invidivu gen {0} - fit : {1} #########################".format(NGEN, meilleurInd(pop)[0]))
+            # print("Individu : ",meilleurInd(pop)[1])
 
 generation()
