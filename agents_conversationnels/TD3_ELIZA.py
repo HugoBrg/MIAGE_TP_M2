@@ -31,8 +31,6 @@ excitment = 0
 patterns = {}
 kind_words_patterns = {}
 angry_words_patterns = {}
-boredom_words_patterns = {}
-excitment_words_patterns = {}
 
 # Iterate over the keywords dictionary
 for intent, keys in keywords.items():
@@ -129,16 +127,6 @@ def respond(message):
         kindness -= 10
         print("kindness :",kindness)
         print("angriness :",angriness)
-    elif intent == "boredom":
-        boredom += 10
-        excitment -=10
-        print("boredom :",boredom)
-        print("excitment :",excitment)
-    elif intent == "excitment":
-        boredom -= 10
-        excitment +=10
-        print("boredom :",boredom)
-        print("excitment :",excitment)
     elif intent in responses:
         key = intent
     return responses[key]
