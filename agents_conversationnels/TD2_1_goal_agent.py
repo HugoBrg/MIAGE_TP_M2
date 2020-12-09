@@ -67,8 +67,7 @@ def actionTraj(emplacement):
             return True
         else:
             etat[2] += 1
-            print(
-                "Objectif non atteint, nous allons en case {0}".format(etat[2]))
+            print("Objectif non atteint, nous allons en case {0}".format(etat[2]))
             print("On nettoie la salle")
             salleA[etat[2]] = 0
     if etat[0] == "B" and goal[0] == "A":
@@ -81,8 +80,7 @@ def actionTraj(emplacement):
             return True
         else:
             etat[2] += 1
-            print(
-                "Objectif non atteint, nous allons en case {0}".format(etat[2]))
+            print("Objectif non atteint, nous allons en case {0}".format(etat[2]))
             print("On nettoie la salle")
             salleB[etat[2]] = 0
     if etat[0] == "A" and goal[0] == "B":
