@@ -1,7 +1,5 @@
 # Travaux pratiques 
 
-## Installation
-
 ## Disclaimer 
 Afin de comprendre les amélioration et différence de comportements entre les robots j'ai fait les choix de faire apparaître les nouvelles caratéristiques en **gras** et de faire apparare les caratéristiques qui ont due disparaitre en ~~barré~~.
 
@@ -33,7 +31,11 @@ Afin de comprendre les amélioration et différence de comportements entre les r
 - Comportement : Le chatbot possède des émotions
 - Amélioration : Chaque phrase est analysé grâce à la base de données SentiWord, si un mot a une consonnance positive ou négative cela affecte les réponses et l'humeur de PARRY.
 
-## Agent de resetvations de billets d'avions
-
+## Agent de reservations de billets d'avions
+- Comportement : Le bot demande différente informations à l'utilisateur afin que ce dernier puisse réserver un billet d'avion
+- Amélioration : 
+    - Vérification des dates (pas de voyage vers le passé, date correctement formatée)
+    - Vérification des villes (ville qui existe dans la BDD de la compagnie aérienne, pas de voyage ayant pour depart et arrivée la même ville)
+    - Interrogations en boucle jusqu'à réponse attendue
 
 ## Au cas ou il vous est impossible de tester les codes des screenshots des résultats se trouve dans le dossier /results
