@@ -3,6 +3,8 @@
 import random
 import re
 import numpy as np
+import pandas as pd
+from termcolor import colored, cprint
 
 # Define variables
 name = "Greg"
@@ -12,9 +14,11 @@ weather = "cloudy"
 bot_template = "BOT : {0}"
 user_template = "USER : {0}"
 
-# Mental state level
-previous_mental_state_level = 0
-mental_state_level = 0
+# Load CSV
+data = pd.read_csv('SentiWordNet_3.0.0.txt', sep="\t", header=None, engine='python')
+
+# Parry's current mood
+parry_mood = 0
 
 # Define the rules
 rules = {'do you think (.*)': 
@@ -54,38 +58,36 @@ rules = {'do you think (.*)':
             ["Ok"]
 }
 
-mental_state_keywords = {
-        'suicide':
-            ["I'm here for you",
-            "Are you all right?",
-            "How can I help you?",
-            "You can talk to me about anything!"],
-        'murder':
-            ["You're starting to scare me",
-            "You're going to need more sessions",
-            "This is really concerning"],
-        'death':
-            ["I'm here for you",
-            "Are you all right?",
-            "How can I help you?",
-            "You can talk to me about anything!"],
-        'alone':
-            ["I'm here for you",
-            "Are you all right?",
-            "How can I help you?",
-            "You can talk to me about anything!"],
-        'kill': 
-            ["You're starting to scare me",
-            "Are you all right?"],
-        "default": 
-            ["No matter what's going through your mind I'll be there",
-            "You sure you want to change the subject",
-            "I'm still concerned about what you said !"]
-}
-
+# Read SentiWord database
+def senti_word():
+    global data
+    del data[0]
+    del data[1]
+    del data[5]
+    for x in range(len(data)):
+        data.at[x,4] = re.sub('#\d', '', data.at[x,4])  
+        if data.at[x,2] > data.at[x,3]:
+            data.at[x,2] = 1 
+        elif data.at[x,2] == data.at[x,3]:
+            data.at[x,2] = 0
+        else:
+            data.at[x,2] = -1
+    del data[3]
 
 # Define respond()
 def respond(keywords, message):
+    if parry_mood > 0:
+        print("Parry's current mood is : ",end='')
+        text = colored('Positive', 'green')
+        print(text)
+    elif parry_mood < 0:
+        print("Parry's current mood is : ",end='')
+        text = colored('Negative', 'red')
+        print(text)
+    else:
+        print("Parry's current mood is : ",end='')
+        text = colored('Neutral', 'blue')
+        print(text)
     # Call match_rule
     response, phrase = match_rule(keywords,message)
     if '{0}' in response:
@@ -97,23 +99,11 @@ def respond(keywords, message):
 
 # Define a function that sends a message to the bot: send_message
 def send_message(message):
-    global previous_mental_state_level
-    global mental_state_level
     # Print user_template including the user_message
     print(user_template.format(message))
+    message_tendency(message)
     # Get the bot's response to the message
-    print("Current mental state  : ",mental_state_level)
-    if mental_state(message) > 20:
-        print("~~ the patient is not in a good state ~~")
-        response = respond(mental_state_keywords, message) 
-        previous_mental_state_level = mental_state_level
-    else:
-        response = respond(rules, message)
-    
-    if previous_mental_state_level == mental_state_level and mental_state_level != 0:
-        mental_state_level -= 10
-        previous_mental_state_level = mental_state_level
-        
+    response = respond(rules, message)      
     # Print the bot template including the bot's response.
     print(bot_template.format(response))
 
@@ -154,14 +144,28 @@ def replace_pronouns(message):
         return re.sub('you','me',message)
     return message
 
+def message_tendency(message):
+    global data
+    global parry_mood
+    tendency = 0
+    for x in range(len(data)):
+        if data.at[x,4] in message:
+            if data.at[x,2] == 1:
+                parry_mood += 1
+                tendency += 1
+            elif data.at[x,2] == -1:
+                parry_mood -=1
+                tendency -= 1
 
-# Check mental state
-def mental_state(message):
-    global mental_state_level
-    for keyword in mental_state_keywords:
-        if keyword in message:
-            mental_state_level += 10
-    return mental_state_level
+    if tendency > 0:
+        text = colored('^^^Positive message^^^', 'green')
+        print(text)
+    elif tendency < 0:
+        text = colored('^^^Negative message^^^', 'red')
+        print(text)
+    else:
+        text = colored('^^^Neutral message^^^', 'blue')
+        print(text)
 
 # Allow user to discuss with the bot
 def user_input():
@@ -169,8 +173,10 @@ def user_input():
         user_input = input("")
         send_message(user_input)
 
+senti_word()
+
 # Rule test
-send_message("Hello")
+send_message("hello")
 send_message("what's your name?") 
 send_message("what's today's weather?")
 send_message("do you remember your last birthday")              
@@ -178,15 +184,6 @@ send_message("do you think humans should be worried about AI")
 send_message("I want a robot friend")
 send_message("what if you could be anything you wanted")
 
-# Declining mental status
-send_message("I'm about to kill myself")
-send_message("I want to murder someone!")
-send_message("Maybe I will die alone")
-send_message("I will suicide")
-
-# The patient is stable again
-send_message("goodbye")
-send_message("I said goodbye")
 
 # To test some questions
 user_input()
