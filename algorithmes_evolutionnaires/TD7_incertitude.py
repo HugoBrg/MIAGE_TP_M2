@@ -17,7 +17,7 @@ for actual in df["Adj Close"]:
         st.append(-1)
     previous = actual
 
-#print(st)
+print(st)
 
 #####################Q5#####################
 pr1 = 0 #[0,1]
