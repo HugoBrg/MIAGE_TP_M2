@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.base:RulePackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.base="http://ilog.rules.studio/model/base.ecore">
+  <name>hello_world</name>
+  <uuid>9f692a05-6f09-4046-8b81-f1a821548658</uuid>
+  <orderedMembers>hello_world</orderedMembers>
+  <orderedMembers>madame</orderedMembers>
+  <orderedMembers>monsieur</orderedMembers>
+  <orderedMembers>verbalize</orderedMembers>
+  <orderedMembers>monsieur_table</orderedMembers>
+</ilog.rules.studio.model.base:RulePackage>

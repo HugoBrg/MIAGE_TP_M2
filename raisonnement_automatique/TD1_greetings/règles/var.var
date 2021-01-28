@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.base:VariableSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.base="http://ilog.rules.studio/model/base.ecore">
+  <name>var</name>
+  <uuid>efae9f94-c775-475e-97d2-3a4cd0e74b72</uuid>
+  <variables name="age" type="java.lang.Integer" initialValue="" verbalization="age"/>
+  <variables name="jeune" type="java.lang.Boolean" initialValue="" verbalization="jeune"/>
+  <variables name="prenom" type="java.lang.String" initialValue="" verbalization="prenom"/>
+  <variables name="nom" type="java.lang.String" initialValue="" verbalization="nom"/>
+  <variables name="genre" type="java.lang.String" initialValue="" verbalization="genre"/>
+  <variables name="message" type="java.lang.String" initialValue="" verbalization="message"/>
+  <variables name="person" type="verbalize.person" initialValue="" verbalization="person"/>
+</ilog.rules.studio.model.base:VariableSet>

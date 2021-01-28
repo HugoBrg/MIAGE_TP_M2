@@ -1,0 +1,13 @@
+# Vocabulary Properties
+uuid = 82e46d5e-452c-4836-a245-2bb36e1b346e
+
+# verbalize.person
+verbalize.person#concept.label = person
+verbalize.person.age#phrase.action = assigner l'age {this,PARTITIVE_ARTICLE} à {age}
+verbalize.person.age#phrase.navigation = {age} {this,PARTITIVE_ARTICLE}
+verbalize.person.firstName#phrase.action = assigner le first name {this,PARTITIVE_ARTICLE} à {first name}
+verbalize.person.firstName#phrase.navigation = {first name} {this,PARTITIVE_ARTICLE}
+verbalize.person.gender#phrase.action = assigner le gender {this,PARTITIVE_ARTICLE} à {gender}
+verbalize.person.gender#phrase.navigation = {gender} {this,PARTITIVE_ARTICLE}
+verbalize.person.lastName#phrase.action = assigner le last name {this,PARTITIVE_ARTICLE} à {last name}
+verbalize.person.lastName#phrase.navigation = {last name} {this,PARTITIVE_ARTICLE}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>verbalize</name>
+  <uuid>030c0698-b4f1-4af3-a1b6-a64a632f07b9</uuid>
+  <locale>fr_FR</locale>
+  <definition><![CDATA[si person n'est pas nul et age est au plus 30 et genre n'est pas nul et nom n'est pas nul et prenom n'est pas nul alors
+	affecter à age la valeur l'age de person ;
+	affecter à genre la valeur le gender de person ;
+	affecter à prenom la valeur le first name de person ;
+	affecter à nom la valeur le last name de person ; ]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

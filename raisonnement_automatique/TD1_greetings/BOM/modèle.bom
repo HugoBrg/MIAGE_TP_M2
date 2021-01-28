@@ -1,0 +1,16 @@
+
+property loadGetterSetterAsProperties "true"
+property origin "xom:/TD1_greetings//TD2_verbalize"
+property uuid "6dd2582b-80e2-4f81-8e9c-6f49047c4679"
+package verbalize;
+
+
+public class person
+{
+    public int age;
+    public string firstName;
+    public string gender;
+    public string lastName;
+    public person();
+}
+

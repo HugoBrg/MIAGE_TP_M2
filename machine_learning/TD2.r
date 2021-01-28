@@ -3,7 +3,7 @@
 #------------------------------------#
 
 # Chargement des donnees
-produit <- read.csv("Data Produit.csv", header = TRUE, sep = ",", dec = ".")
+produit <- read.csv("C:/Users/hugob/Desktop/MIAGE_TP_M2/machine_learning/Data_Produit.csv", header = TRUE, sep = ",", dec = ".")
 str(produit)
 View(produit)
 table(produit$Produit)

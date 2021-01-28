@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionservice:Operation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" xmlns:ilog.rules.studio.model.query.extractor="http://ilog.rules.studio/model/query/extractor.ecore" rulesetName="homme_age" usingRuleflow="true" ruleflowName="monsieur" targetRuleProjectName="TD1_greetings">
+  <name>homme_age</name>
+  <uuid>eb1a2fb3-d500-444d-a843-ae97434dc486</uuid>
+  <referencedVariables variableName="age" variableSetName="var">
+    <variableSet href="../règles/var.var#efae9f94-c775-475e-97d2-3a4cd0e74b72"/>
+  </referencedVariables>
+  <referencedVariables variableName="jeune" variableSetName="var" direction="OUT">
+    <variableSet href="../règles/var.var#efae9f94-c775-475e-97d2-3a4cd0e74b72"/>
+  </referencedVariables>
+  <referencedVariables variableName="prenom" variableSetName="var">
+    <variableSet href="../règles/var.var#efae9f94-c775-475e-97d2-3a4cd0e74b72"/>
+  </referencedVariables>
+  <referencedVariables variableName="nom" variableSetName="var">
+    <variableSet href="../règles/var.var#efae9f94-c775-475e-97d2-3a4cd0e74b72"/>
+  </referencedVariables>
+  <referencedVariables variableName="genre" variableSetName="var">
+    <variableSet href="../règles/var.var#efae9f94-c775-475e-97d2-3a4cd0e74b72"/>
+  </referencedVariables>
+  <referencedVariables variableName="message" variableSetName="var" direction="OUT">
+    <variableSet href="../règles/var.var#efae9f94-c775-475e-97d2-3a4cd0e74b72"/>
+  </referencedVariables>
+  <ruleflow href="../règles/hello_world/monsieur.rfl#d62a69c5-3e8d-4019-87f9-660f98f71017"/>
+  <extractor xsi:type="ilog.rules.studio.model.query.extractor:QueryExtractor" name="homme_age_extractor" validator="Valideur par défaut"/>
+  <targetRuleProject href="../../TD1_greetings#2e24636d-3e0a-4c0e-b339-ed459441590b"/>
+</com.ibm.rules.studio.model.decisionservice:Operation>
