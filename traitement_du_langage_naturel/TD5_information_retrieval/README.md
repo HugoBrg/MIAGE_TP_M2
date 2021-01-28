@@ -57,7 +57,7 @@
 # Installation
 Décommenter ligne 7 si besoin pour télécharger les stopwords
 ```
-git clone https://github.com/HugoBrg/MIAGE_TP_M2/tree/master/traitement_du_langage_naturel
+git clone https://github.com/HugoBrg/MIAGE_TP_M2/
 cd /MIAGE_TP_M2/traitement_du_langage_naturel/TD5_information_retrieval
 python TD5_information_retrieval
 ```
