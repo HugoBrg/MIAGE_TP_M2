@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>rule1</name>
+  <uuid>cfac46b6-fb2d-42f2-ae26-24183e3adf4f</uuid>
+  <locale>fr_FR</locale>
+  <definition><![CDATA[définitions
+	soit 'la balle' étant un ball;
+si
+	le sound de 'la balle' est "Ping"
+alors afficher "Send a Pong to ball number" + le name de 'la balle';
+assigner le sound de 'la balle' à "Pong";
+assigner le number of hits de 'la balle' à le number of hits de 'la balle' + 1;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

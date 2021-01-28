@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>CalculPrixLigne</name>
+  <uuid>76ab6d89-9a3a-419a-9905-537ee8060586</uuid>
+  <locale>fr_FR</locale>
+  <definition><![CDATA[définitions
+	soit 'lignes' étant tous les lignes ; 
+alors pour chaque ligne nommé 'l' , parmi lignes : 
+	- assigner le prix total de l à le prix du produit de l * le quantite de l ;
+	]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>PromotionHygiene</name>
+  <uuid>a2dc7940-d26c-4bf7-994b-39717855c109</uuid>
+  <locale>fr_FR</locale>
+  <definition><![CDATA[définitions
+	soit 'panier' étant un panier ; 
+	soit 'ligne_hygiene' étant les lignes de panier tel que le categorie du produit de chaque ligne est "Hygiene"; 
+si le nombre d'éléments parmi ligne_hygiene est au moins 2 
+alors pour chaque ligne parmi ligne_hygiene : 
+	- assigner le prix total de ce ligne à le prix total de ce ligne / 100 * 95;
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>AfficherPrixPanier</name>
+  <uuid>49ae2e7f-aae1-4171-8ce9-b1935f2dd688</uuid>
+  <locale>fr_FR</locale>
+  <definition><![CDATA[définitions
+	soit 'panier' étant un panier ;
+alors afficher "Prix panier : " + le prix total de panier;  ]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

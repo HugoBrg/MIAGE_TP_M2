@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionservice:Operation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" xmlns:ilog.rules.studio.model.query.extractor="http://ilog.rules.studio/model/query/extractor.ecore" rulesetName="run" usingRuleflow="true" ruleflowName="flux" targetRuleProjectName="Panier">
+  <name>run</name>
+  <uuid>72fcdab9-599a-47cc-968c-c745917d5a7e</uuid>
+  <ruleflow href="../règles/miage/flux.rfl#e1b5e82c-7c42-428e-901d-bf53d6f7c60c"/>
+  <extractor xsi:type="ilog.rules.studio.model.query.extractor:QueryExtractor" name="run_extractor" validator="Valideur par défaut"/>
+  <targetRuleProject href="../../Panier#91c8e445-6f23-490c-87be-dafb5dff545d"/>
+</com.ibm.rules.studio.model.decisionservice:Operation>

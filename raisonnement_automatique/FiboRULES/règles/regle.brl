@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>regle</name>
+  <uuid>1b56a5c3-25aa-492b-a26d-fad41595f125</uuid>
+  <locale>fr_FR</locale>
+  <definition><![CDATA[définitions
+    soit 'fibo' étant un fibo;
+si l'itr de 'fibo' est plus petit que le n de fibo
+	alors 
+		afficher "n    : " + le n de fibo;
+		pour chaque nombre parmi les arrs de fibo : 
+		- afficher "---------------"
+		- assigner le fn de fibo à le fn1 de fibo + le fn2 de fibo
+		- afficher "fn   : " + le fn de fibo
+		- afficher "fn -1: " + le fn1 de fibo
+		- assigner le fn1 de fibo à le fn2 de fibo
+		- afficher "fn -2: " + le fn2 de fibo
+		- assigner le fn2 de fibo à le fn de fibo
+		- assigner l'itr de fibo à l'itr de fibo + 1
+		- afficher "itr  : " + l'itr de fibo;
+	mettre à vrai que fibo est goal;
+	afficher "=== goal atteint === ";
+	afficher "le fibonacci de " + le n de fibo ;
+	afficher "est : " + le fn de fibo ; ]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

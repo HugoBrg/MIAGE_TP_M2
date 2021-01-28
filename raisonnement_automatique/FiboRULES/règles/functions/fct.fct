@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.rule:Function xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.rule="http://ilog.rules.studio/model/rule.ecore">
+  <name>fct</name>
+  <uuid>4eaf7e36-eca9-47be-9ae2-e916113d93a5</uuid>
+  <definition><![CDATA[insert new Fibo(12);]]></definition>
+</ilog.rules.studio.model.rule:Function>

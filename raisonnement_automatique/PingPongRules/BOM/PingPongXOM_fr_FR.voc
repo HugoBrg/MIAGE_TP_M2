@@ -1,0 +1,11 @@
+# Vocabulary Properties
+uuid = 622e0c1a-65f6-4816-9b5a-7aee736fe3c5
+
+# ball.ball
+ball.ball#concept.label = ball
+ball.ball.name#phrase.action = assigner le name {this,PARTITIVE_ARTICLE} à {name}
+ball.ball.name#phrase.navigation = {name} {this,PARTITIVE_ARTICLE}
+ball.ball.numberOfHits#phrase.action = assigner le number of hits {this,PARTITIVE_ARTICLE} à {number of hits}
+ball.ball.numberOfHits#phrase.navigation = {number of hits} {this,PARTITIVE_ARTICLE}
+ball.ball.sound#phrase.action = assigner le sound {this,PARTITIVE_ARTICLE} à {sound}
+ball.ball.sound#phrase.navigation = {sound} {this,PARTITIVE_ARTICLE}

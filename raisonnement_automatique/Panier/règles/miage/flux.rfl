@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.ruleflow:RuleFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.ruleflow="http://ilog.rules.studio/model/ruleflow.ecore">
+  <name>flux</name>
+  <uuid>e1b5e82c-7c42-428e-901d-bf53d6f7c60c</uuid>
+  <locale>fr_FR</locale>
+  <categories>any</categories>
+  <rfModel>
+<Ruleflow xmlns="http://schemas.ilog.com/Rules/7.0/Ruleflow">
+  <Body>
+    <TaskList>
+      <StartTask Identifier="task_0">
+        <Actions Language="irl"><![CDATA[miage.fonction();]]></Actions>
+      </StartTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="task_1" Ordering="Default">
+        <InitialActions/>
+        <RuleList>
+          <Rule Uuid="76ab6d89-9a3a-419a-9905-537ee8060586"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="task_2" Ordering="Default">
+        <InitialActions/>
+        <RuleList>
+          <Rule Uuid="63f43d97-fb18-40f6-a7b4-6957543408e8"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="task_3" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="7e344b28-973e-4658-a002-39ca678d562d"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="task_4" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="aaf0204c-039f-4683-ad6d-5bc1ffedc050"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="task_5" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="229111ed-cd1c-4ace-a311-0050f2c94033"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="task_6" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="49ae2e7f-aae1-4171-8ce9-b1935f2dd688"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="task_7" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="a2dc7940-d26c-4bf7-994b-39717855c109"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="task_8" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="f334a519-8bfc-4bb0-af1b-32daff6aff54"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="task_9" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="49ae2e7f-aae1-4171-8ce9-b1935f2dd688"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="task_10" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="24287db1-0396-4099-928a-0fb8cac5e446"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="task_12" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="49ae2e7f-aae1-4171-8ce9-b1935f2dd688"/>
+        </RuleList>
+      </RuleTask>
+      <StopTask Identifier="task_11"/>
+    </TaskList>
+    <NodeList>
+      <TaskNode Identifier="node_0" Task="task_0"/>
+      <TaskNode Identifier="node_1" Task="task_1"/>
+      <TaskNode Identifier="node_2" Task="task_2"/>
+      <TaskNode Identifier="node_3" Task="task_3"/>
+      <TaskNode Identifier="node_4" Task="task_4"/>
+      <TaskNode Identifier="node_5" Task="task_5"/>
+      <TaskNode Identifier="node_6" Task="task_6"/>
+      <TaskNode Identifier="node_7" Task="task_7"/>
+      <TaskNode Identifier="node_8" Task="task_8"/>
+      <TaskNode Identifier="node_9" Task="task_9"/>
+      <TaskNode Identifier="node_10" Task="task_10"/>
+      <TaskNode Identifier="node_11" Task="task_11"/>
+      <TaskNode Identifier="node_12" Task="task_12"/>
+    </NodeList>
+    <TransitionList>
+      <Transition Identifier="transition_0" Source="node_0" Target="node_1"/>
+      <Transition Identifier="transition_1" Source="node_1" Target="node_2"/>
+      <Transition Identifier="transition_2" Source="node_2" Target="node_3"/>
+      <Transition Identifier="transition_3" Source="node_3" Target="node_4"/>
+      <Transition Identifier="transition_4" Source="node_4" Target="node_5"/>
+      <Transition Identifier="transition_5" Source="node_5" Target="node_6"/>
+      <Transition Identifier="transition_6" Source="node_6" Target="node_7"/>
+      <Transition Identifier="transition_7" Source="node_7" Target="node_8"/>
+      <Transition Identifier="transition_8" Source="node_8" Target="node_9"/>
+      <Transition Identifier="transition_9" Source="node_9" Target="node_10"/>
+      <Transition Identifier="transition_10" Source="node_10" Target="node_12"/>
+      <Transition Identifier="transition_11" Source="node_12" Target="node_11"/>
+    </TransitionList>
+  </Body>
+  <Resources>
+    <ResourceSet Locale="fr_FR">
+      <Data Name="node_2#height">80.53125</Data>
+      <Data Name="node_4#width">112.5293</Data>
+      <Data Name="node_1#height">82.80469</Data>
+      <Data Name="node_3#height">52.265625</Data>
+      <Data Name="node_0#height">21.0</Data>
+      <Data Name="node_4#height">52.265625</Data>
+      <Data Name="node_7#y">823.78906</Data>
+      <Data Name="node_9#x">56.26465</Data>
+      <Data Name="node_9#y">1035.3867</Data>
+      <Data Name="node_2#name">node_1</Data>
+      <Data Name="node_10#label">Reduction</Data>
+      <Data Name="node_5#height">94.66406</Data>
+      <Data Name="node_6#height">66.39844</Data>
+      <Data Name="node_7#height">52.265625</Data>
+      <Data Name="node_6#label">Afficher prix du panier</Data>
+      <Data Name="node_10#height">40.0</Data>
+      <Data Name="node_11#height">22.0</Data>
+      <Data Name="node_12#height">66.39844</Data>
+      <Data Name="node_12#width">102.0</Data>
+      <Data Name="node_12#y">1241.7852</Data>
+      <Data Name="node_7#width">102.26367</Data>
+      <Data Name="node_3#label">Promotion Savon</Data>
+      <Data Name="node_8#height">52.265625</Data>
+      <Data Name="node_9#height">66.39844</Data>
+      <Data Name="node_10#x">56.26465</Data>
+      <Data Name="node_10#y">1138.5859</Data>
+      <Data Name="node_0#width">21.0</Data>
+      <Data Name="node_12#x">56.26465</Data>
+      <Data Name="node_3#y">358.1953</Data>
+      <Data Name="node_5#x">56.26465</Data>
+      <Data Name="node_5#y">583.9258</Data>
+      <Data Name="node_7#x">56.26465</Data>
+      <Data Name="node_1#x">56.26465</Data>
+      <Data Name="node_8#name">node_1</Data>
+      <Data Name="node_1#y">111.265625</Data>
+      <Data Name="node_3#x">56.26465</Data>
+      <Data Name="node_1#name">node_1</Data>
+      <Data Name="node_2#label">Affichage des prix ligne</Data>
+      <Data Name="node_5#label">Calcul prix du panier avant promotion</Data>
+      <Data Name="node_3#width">102.26367</Data>
+      <Data Name="node_4#name">node_1</Data>
+      <Data Name="node_7#name">node_1</Data>
+      <Data Name="node_12#name">node_1</Data>
+      <Data Name="node_9#label">Afficher prix du panier</Data>
+      <Data Name="node_6#width">102.0</Data>
+      <Data Name="node_10#width">102.0</Data>
+      <Data Name="node_8#x">56.26465</Data>
+      <Data Name="node_8#y">926.0547</Data>
+      <Data Name="node_5#name">node_1</Data>
+      <Data Name="node_9#width">102.0</Data>
+      <Data Name="node_1#label">Calcul prix avant promotion</Data>
+      <Data Name="node_2#width">102.0</Data>
+      <Data Name="node_11#x">56.26465</Data>
+      <Data Name="node_11#y">1335.9844</Data>
+      <Data Name="node_4#x">56.26465</Data>
+      <Data Name="node_8#label">Reduction Hygiene</Data>
+      <Data Name="node_4#y">460.46094</Data>
+      <Data Name="node_6#x">56.26465</Data>
+      <Data Name="node_5#width">103.18359</Data>
+      <Data Name="node_6#y">714.45703</Data>
+      <Data Name="node_0#x">56.26465</Data>
+      <Data Name="node_11#name">node_2</Data>
+      <Data Name="node_0#y">10.5</Data>
+      <Data Name="node_12#label">Afficher prix du panier</Data>
+      <Data Name="node_2#x">56.26465</Data>
+      <Data Name="node_2#y">241.79688</Data>
+      <Data Name="node_7#label">Promotion Hygiene</Data>
+      <Data Name="node_10#name">node_1</Data>
+      <Data Name="node_11#width">22.0</Data>
+      <Data Name="node_8#width">102.0</Data>
+      <Data Name="node_1#width">103.18359</Data>
+      <Data Name="node_6#name">node_1</Data>
+      <Data Name="node_9#name">node_1</Data>
+      <Data Name="node_0#name">node_0</Data>
+      <Data Name="node_4#label">Promotion Alimentaire</Data>
+      <Data Name="node_3#name">node_1</Data>
+    </ResourceSet>
+  </Resources>
+  <Properties/>
+</Ruleflow>
+</rfModel>
+</ilog.rules.studio.model.ruleflow:RuleFlow>

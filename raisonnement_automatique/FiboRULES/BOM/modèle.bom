@@ -1,0 +1,17 @@
+
+property loadGetterSetterAsProperties "true"
+property origin "xom:/FiboRULES//FiboXOM"
+property uuid "c7093f60-4ba6-4858-ad09-82374cd90019"
+
+public class Fibo
+{
+    public java.util.ArrayList arr domain 0,* class java.lang.Integer;
+    public int fn;
+    public int fn1;
+    public int fn2;
+    public boolean goal;
+    public int itr;
+    public int n;
+    public Fibo(int arg);
+}
+

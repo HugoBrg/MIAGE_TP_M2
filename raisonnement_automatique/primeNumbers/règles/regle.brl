@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>regle</name>
+  <uuid>753097bf-795a-4562-8fba-a8f881c15a04</uuid>
+  <locale>fr_FR</locale>
+  <definition><![CDATA[définitions 
+	soit 'int' étant un int;
+si 
+	int est prime 
+alors afficher le number de int + "";]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

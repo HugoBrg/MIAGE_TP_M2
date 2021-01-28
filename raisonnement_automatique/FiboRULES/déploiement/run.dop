@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionservice:Operation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" xmlns:ilog.rules.studio.model.query.extractor="http://ilog.rules.studio/model/query/extractor.ecore" rulesetName="run" usingRuleflow="true" ruleflowName="ruleflow" targetRuleProjectName="FiboRULES">
+  <name>run</name>
+  <uuid>ee81b61f-7cc2-4a26-8da9-44ceaee073a7</uuid>
+  <ruleflow href="../règles/ruleflow.rfl#9af38ef4-d2ea-471f-9869-a97316b17811"/>
+  <extractor xsi:type="ilog.rules.studio.model.query.extractor:QueryExtractor" name="run_extractor" validator="Valideur par défaut"/>
+  <targetRuleProject href="../../FiboRULES#339b014a-6409-40a5-aa4d-19dbd64d0c42"/>
+</com.ibm.rules.studio.model.decisionservice:Operation>

@@ -1,0 +1,32 @@
+
+property loadGetterSetterAsProperties "true"
+property origin "xom:/Panier//PanierXOM"
+property uuid "fbacb09a-5245-415d-b978-7aabfcdb4ef2"
+
+public class Ligne
+{
+    public int prix_total;
+    public Produit produit;
+    public int quantite;
+    public Ligne(Produit arg1, int arg2);
+}
+
+public class Panier
+{
+    public writeonly Ligne ligne;
+    public java.util.List lignes domain 0,* class Ligne;
+    public int prix_total;
+    public Panier(Ligne[] arg);
+    public Panier();
+    public void calculPrixTotal();
+    public void wolaLignes(java.util.List arg domain 0,* class Ligne);
+}
+
+public class Produit
+{
+    public string categorie;
+    public string nom;
+    public int prix;
+    public Produit(string arg1, string arg2, int arg3);
+}
+

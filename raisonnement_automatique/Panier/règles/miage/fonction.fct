@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.rule:Function xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.rule="http://ilog.rules.studio/model/rule.ecore">
+  <name>fonction</name>
+  <uuid>09571f24-8b9b-4305-bbfb-278c88442148</uuid>
+  <definition><![CDATA[System.out.println("Insertion panier");
+Ligne[] lignes = {new Ligne(new Produit("DOP","Savon",2),5),new Ligne(new Produit("ARIEL","Savon",2),5)};
+insert new Panier(lignes);]]></definition>
+  <imports>import java.util.ArrayList;</imports>
+  <imports>import java.util.List;</imports>
+</ilog.rules.studio.model.rule:Function>

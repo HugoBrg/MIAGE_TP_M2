@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>Reduction</name>
+  <uuid>24287db1-0396-4099-928a-0fb8cac5e446</uuid>
+  <locale>fr_FR</locale>
+  <definition><![CDATA[définitions
+	soit 'panier' étant un panier ; 
+si le prix total de panier est au moins 50 
+alors assigner le prix total de panier à le prix total de panier - 5; ]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

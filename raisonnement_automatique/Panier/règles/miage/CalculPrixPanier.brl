@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>CalculPrixPanier</name>
+  <uuid>229111ed-cd1c-4ace-a311-0050f2c94033</uuid>
+  <locale>fr_FR</locale>
+  <definition><![CDATA[définitions
+	soit 'lignes' étant tous les lignes ;  
+	soit 'panier' étant un panier ; 
+alors pour chaque ligne nommé 'l' , parmi lignes : 
+	- assigner le prix total de panier à le prix total de panier + le prix total de l ; ]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

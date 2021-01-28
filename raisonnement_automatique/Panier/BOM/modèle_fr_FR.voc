@@ -1,0 +1,30 @@
+# Vocabulary Properties
+uuid = 3b6d0098-00e9-4a7b-8a0c-b888db343d24
+
+# Ligne
+Ligne#concept.label = ligne
+Ligne.prix_total#phrase.action = assigner le prix total {this, PARTITIVE_ARTICLE} à {prix total}
+Ligne.prix_total#phrase.navigation = {prix total} {this, PARTITIVE_ARTICLE}
+Ligne.produit#phrase.action = assigner le produit {this, PARTITIVE_ARTICLE} à {produit}
+Ligne.produit#phrase.navigation = {produit} {this, PARTITIVE_ARTICLE}
+Ligne.quantite#phrase.action = assigner le quantite {this, PARTITIVE_ARTICLE} à {quantite}
+Ligne.quantite#phrase.navigation = {quantite} {this, PARTITIVE_ARTICLE}
+
+# Panier
+Panier#concept.label = panier
+Panier.calculPrixTotal()#phrase.action = calculPrixTotal {this}
+Panier.ligne#phrase.action = assigner le ligne {this, PARTITIVE_ARTICLE} à {ligne}
+Panier.lignes#phrase.action = assigner les lignes {this, PARTITIVE_ARTICLE} à {ligne}
+Panier.lignes#phrase.navigation = {ligne} {this, PARTITIVE_ARTICLE}
+Panier.prix_total#phrase.action = assigner le prix total {this, PARTITIVE_ARTICLE} à {prix total}
+Panier.prix_total#phrase.navigation = {prix total} {this, PARTITIVE_ARTICLE}
+Panier.wolaLignes(java.util.List)#phrase.action = {this}.wolaLignes({0})
+
+# Produit
+Produit#concept.label = produit
+Produit.categorie#phrase.action = assigner le categorie {this, PARTITIVE_ARTICLE} à {categorie}
+Produit.categorie#phrase.navigation = {categorie} {this, PARTITIVE_ARTICLE}
+Produit.nom#phrase.action = assigner le nom {this, PARTITIVE_ARTICLE} à {nom}
+Produit.nom#phrase.navigation = {nom} {this, PARTITIVE_ARTICLE}
+Produit.prix#phrase.action = assigner le prix {this, PARTITIVE_ARTICLE} à {prix}
+Produit.prix#phrase.navigation = {prix} {this, PARTITIVE_ARTICLE}

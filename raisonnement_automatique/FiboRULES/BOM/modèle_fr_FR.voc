@@ -1,0 +1,19 @@
+# Vocabulary Properties
+uuid = b5bddfdd-1bcb-45bc-957f-e09387d0d4aa
+
+# Fibo
+Fibo#concept.label = fibo
+Fibo.arr#phrase.action = assigner les arrs {this,PARTITIVE_ARTICLE} à {arr}
+Fibo.arr#phrase.navigation = {arr} {this,PARTITIVE_ARTICLE}
+Fibo.fn#phrase.action = assigner le fn {this, PARTITIVE_ARTICLE} à {fn}
+Fibo.fn#phrase.navigation = {fn} {this, PARTITIVE_ARTICLE}
+Fibo.fn1#phrase.action = assigner le fn1 {this, PARTITIVE_ARTICLE} à {fn1}
+Fibo.fn1#phrase.navigation = {fn1} {this, PARTITIVE_ARTICLE}
+Fibo.fn2#phrase.action = assigner le fn2 {this, PARTITIVE_ARTICLE} à {fn2}
+Fibo.fn2#phrase.navigation = {fn2} {this, PARTITIVE_ARTICLE}
+Fibo.goal#phrase.action = mettre à {goal} que {this} est goal
+Fibo.goal#phrase.navigation = {this} est goal
+Fibo.itr#phrase.action = assigner l'itr {this, PARTITIVE_ARTICLE} à {itr}
+Fibo.itr#phrase.navigation = {itr} {this, PARTITIVE_ARTICLE}
+Fibo.n#phrase.action = assigner le n {this, PARTITIVE_ARTICLE} à {n}
+Fibo.n#phrase.navigation = {n} {this, PARTITIVE_ARTICLE}

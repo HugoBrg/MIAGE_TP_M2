@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionservice:Operation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" xmlns:ilog.rules.studio.model.query.extractor="http://ilog.rules.studio/model/query/extractor.ecore" rulesetName="dp" targetRuleProjectName="PingPongRules">
+  <name>dp</name>
+  <uuid>39ba1c2e-9e3a-4eed-9077-59d8aa3a3818</uuid>
+  <extractor xsi:type="ilog.rules.studio.model.query.extractor:QueryExtractor" name="dp_extractor" validator="Valideur par défaut"/>
+  <targetRuleProject href="../../PingPongRules#dc8d8974-97aa-4b0d-95a2-280c12a157bf"/>
+</com.ibm.rules.studio.model.decisionservice:Operation>

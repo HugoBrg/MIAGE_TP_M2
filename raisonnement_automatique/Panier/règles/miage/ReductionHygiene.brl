@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>ReductionHygiene</name>
+  <uuid>f334a519-8bfc-4bb0-af1b-32daff6aff54</uuid>
+  <locale>fr_FR</locale>
+  <definition><![CDATA[définitions
+	soit 'panier' étant un panier ; 
+	soit 'ligne' étant les lignes de panier tel que le categorie du produit de chaque ligne est "Hygiene"; 
+si le nombre d'éléments parmi ligne est au moins 2 
+alors assigner le prix total de panier à le prix total de panier - 2;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

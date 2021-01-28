@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.rule:Function xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.rule="http://ilog.rules.studio/model/rule.ecore">
+  <name>fct</name>
+  <uuid>e2237d18-278b-4291-b248-b670aafb077b</uuid>
+  <definition><![CDATA[System.out.println("Insert the balls");
+insert new ball("1", "Ping");
+insert new ball("2", "Ping");]]></definition>
+</ilog.rules.studio.model.rule:Function>

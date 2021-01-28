@@ -1,0 +1,16 @@
+
+property loadGetterSetterAsProperties "true"
+property origin "xom:/PingPongRules//PingPongXOM"
+property uuid "69c82990-4acf-471a-bc51-2b4ea35b527a"
+package ball;
+
+
+public class ball
+{
+    public string name;
+    public int numberOfHits;
+    public string sound
+                property update "true";
+    public ball(string arg1, string arg2);
+}
+
