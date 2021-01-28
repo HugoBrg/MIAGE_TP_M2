@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title></title>
+        <script src="myComponents/index.js" type="module"></script>
+    </head>
+    <body>
+        <my-logo id="logo" text="hello" couleur="green"></my-logo>
+        <button onclick="traiteclick()">click</button>
+    </body>
+    <script>
+        let logo = document.querySelector("#logo");
+        function traiteclick(){
+            logo.changeText("Coucou");
+        }
+    </script>
+</html>
