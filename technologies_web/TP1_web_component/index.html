@@ -1,16 +1,20 @@
 <html>
     <head>
         <title></title>
+        <link rel="stylesheet" href="style.css" />
         <script src="myComponents/index.js" type="module"></script>
     </head>
-    <body>
-        <my-logo id="logo" text="hello" couleur="green"></my-logo>
-        <button onclick="traiteclick()">click</button>
+    <body id="body" class="color-change-2x">
+        <div>
+            <my-logo id="logo" text="Votre logo" couleur="black"></my-logo>
+        </div>
+        
     </body>
-    <script>
+    <!-- <script>
         let logo = document.querySelector("#logo");
-        function traiteclick(){
-            logo.changeText("Coucou");
+        function valider(){
+            logo.changeText(logoInputText.value);
+            console.log("Bouton valider")
         }
-    </script>
+    </script> -->
 </html>

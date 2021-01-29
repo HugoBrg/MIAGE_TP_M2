@@ -1,0 +1,37 @@
+div {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100px;
+    text-align: center;
+    font-family: 'Leelawadee UI Semilight';
+}
+
+.color-change-2x {
+	-webkit-animation: color-change-2x 6s linear infinite alternate both;
+	        animation: color-change-2x 6s linear infinite alternate both;
+}
+
+
+ @-webkit-keyframes color-change-2x {
+    0% {
+      background: #19dcea;
+    }
+    100% {
+      background: #b22cff;
+    }
+  }
+  @keyframes color-change-2x {
+    0% {
+      background: #19dcea;
+    }
+    100% {
+      background: #b22cff;
+    }
+  }
+
+.hugo {
+    background: black;
+}
